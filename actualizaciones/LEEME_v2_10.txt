@@ -1,0 +1,48 @@
+PAYKAN COSVEN - v2.10 UI + AYUDA
+==================================
+
+CAMBIOS
+-------
+1. Los recuadros de selección de:
+   - Farmacias
+   - Tipo de pedido
+   - Laboratorios
+
+   ahora tienen mayor altura visible (220 px) y scroll interno.
+   Esto permite ver más opciones sin tener que desplazarse lateralmente
+   ni abrir y cerrar continuamente los controles.
+
+2. Se actualizó la sección "Qué hace este informe y cómo funciona":
+   - texto más corto;
+   - lenguaje de usuario final;
+   - filtros actuales;
+   - detalle en ventana amplia;
+   - ajustes mostrados por separado;
+   - explicación de actualización y modo lectura;
+   - se mantiene la imagen del depósito.
+
+3. Se corrigió la forma de renderizar el texto de ayuda para evitar
+   que aparezcan etiquetas HTML como <strong> o <br> en pantalla.
+
+SE MANTIENE
+-----------
+- lógica COSVEN;
+- filtro Farmacias;
+- Tipo de pedido;
+- Laboratorio / Proveedor;
+- Tipo de producto;
+- tratamiento de ajustes/NC;
+- popup grande de detalle;
+- históricos y base local;
+- lectura segura de los DBF.
+
+INSTALACION
+-----------
+1. Descomprimir en:
+   C:\Paykan\COSVEN\actualizaciones\v2_10
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Reiniciar:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat

@@ -1,0 +1,11 @@
+PAYKAN COSVEN v2.13
+
+Cambio único:
+- En el popup de detalle, la columna Usuario pasa a ser la última columna.
+- Descuento se mantiene exactamente como estaba.
+- No se modifican cálculos COSVEN, datos, históricos ni exportaciones.
+
+Instalación:
+1. Descomprimir en C:\Paykan\COSVEN\actualizaciones\v2_13
+2. Ejecutar APLICAR_ACTUALIZACION.bat
+3. Reiniciar C:\Paykan\COSVEN\iniciar_dashboard.bat

@@ -1,0 +1,20 @@
+PAYKAN COSVEN v2.16 - FECHA DISPONIBLE
+
+Corrección:
+- El dashboard ya no abre en una fecha vacía sólo porque corresponde a ayer.
+- Intenta ayer; si no existen movimientos, abre el último día con movimientos disponible anterior.
+- Si una pestaña queda abierta de un día para otro, actualiza la fecha automática siempre que el usuario no hubiera elegido manualmente otro rango.
+- El panel muestra por separado:
+  * Datos procesados hasta
+  * Último día con movimientos
+
+Este paquete NO soluciona una tarea automática que no esté instalada o que falle.
+Eso se revisa por separado con VERIFICAR_ACTUALIZACIONES.bat de la v2.15.
+
+No modifica:
+- COSVEN
+- cálculos
+- cosven.db
+- históricos
+- DBF
+- tareas de Windows

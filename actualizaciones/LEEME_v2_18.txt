@@ -1,0 +1,52 @@
+PAYKAN COSVEN v2.18 - NC FUERA DE RENTABILIDAD + REGLA DE FECHA INICIAL
+
+Base
+----
+Este paquete parte exactamente de Paykan COSVEN v2.17 y conserva su corrección
+de notas de crédito (TM=NC).
+
+Regla de rentabilidad
+---------------------
+Las notas de crédito identificadas por TM=NC:
+- siguen visibles en el detalle del artículo;
+- no alteran Venta, Costo, Utilidad ni % Utilidad de rentabilidad;
+- no alteran el ranking principal;
+- no alteran los KPI de rentabilidad del popup.
+
+El contador "Movimientos" del popup sigue mostrando todas las operaciones,
+incluidas las NC, para conservar trazabilidad.
+
+Nueva regla de fecha inicial
+----------------------------
+Al abrir el dashboard:
+- normalmente muestra el día anterior;
+- si el día anterior es domingo y EXISTEN movimientos, muestra el domingo;
+- si el día anterior es domingo y NO existen movimientos, muestra el sábado;
+- para cualquier otro día sin movimientos NO retrocede automáticamente.
+
+El usuario puede cambiar libremente el período con Desde / Hasta.
+
+Ejemplos
+--------
+Martes -> abre lunes.
+Lunes + domingo con movimientos -> abre domingo.
+Lunes + domingo sin movimientos -> abre sábado.
+
+No modifica
+-----------
+- DBF
+- cosven.db
+- históricos
+- lógica de costo COSVEN
+- actualización automática
+- tareas programadas
+
+Instalación
+-----------
+Ejecutar APLICAR_ACTUALIZACION.bat.
+
+El instalador respalda el dashboard actual en:
+C:\Paykan\COSVEN\versiones\antes_v2_18_<fecha_hora>\app\dashboard_cosven.py
+
+Después reiniciar el dashboard con:
+C:\Paykan\COSVEN\iniciar_dashboard.bat

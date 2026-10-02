@@ -1,0 +1,11 @@
+REFERENCIAS NUEVAS
+
+COSVEN-F007
+No hay laboratorios/proveedores incluidos en el análisis.
+
+COSVEN-R006
+No fue posible leer correctamente:
+C:\editorPaykanVentas\CSV\Laboratorio.csv
+
+El detalle técnico de R006 se registra en:
+C:\Paykan\COSVEN\logs\dashboard_errores.log

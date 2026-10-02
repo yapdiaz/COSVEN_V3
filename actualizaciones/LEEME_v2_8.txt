@@ -1,0 +1,49 @@
+PAYKAN COSVEN - v2.8
+====================
+
+CAMBIOS
+-------
+1. Laboratorio / Proveedor
+   - Lee C:\editorPaykanVentas\CSV\Laboratorio.csv.
+   - Relación: COSVEN.XFLIA = Laboratorio.FLIA.
+   - Solo muestra laboratorios presentes en el período.
+   - Todos quedan incluidos por defecto.
+   - Orden alfabético por nombre.
+   - Buscable desde el selector.
+   - No se utiliza la columna Activo para eliminar historia.
+
+2. Resultado por artículo
+   - % Utilidad se coloca junto a la descripción/familia.
+   - Venta queda inmediatamente después de % Utilidad.
+   - Se compactaron los anchos para evitar desplazamiento horizontal en escritorio.
+   - No se eliminó ninguna columna del resultado.
+
+3. Tarjetas KPI
+   - Valor numérico más pequeño y sin salto de línea para evitar cifras cortadas.
+
+4. Ajustes / Notas de crédito
+   - La familia 121 se trata como movimiento de ajuste, no como medicamento normal.
+   - Se excluye del ranking por artículo y de los KPI de medicamentos.
+   - Se informa por separado su Venta, Costo y Utilidad.
+   - No se reparte artificialmente entre artículos o laboratorios.
+   - Esta regla se limita a familia 121; no pretende reclasificar todas las NC del sistema.
+
+NO MODIFICA
+-----------
+- Z:\paykann ni ningún DBF.
+- cosven.db.
+- históricos.
+- caches.
+- fórmula de costo COSVEN.
+- automatización.
+
+INSTALACIÓN
+-----------
+1. Descomprimir en:
+   C:\Paykan\COSVEN\actualizaciones\v2_8
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Reiniciar:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat

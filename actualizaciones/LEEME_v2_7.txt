@@ -1,0 +1,39 @@
+PAYKAN COSVEN - v2.7 AJUSTES DE INTERFAZ
+=======================================
+
+INCLUYE
+-------
+1. Farmacias nuevamente como antes:
+   - todas seleccionadas por defecto;
+   - ordenadas alfabéticamente por nombre;
+   - buscables desde el propio selector.
+
+2. Tarjetas KPI:
+   - fuente del valor más chica para que entren completos los números.
+
+3. Filtros:
+   - bordes más visibles en cajas, selectores y etiquetas seleccionadas.
+
+NO CAMBIA
+---------
+- lógica COSVEN;
+- cálculo de costos/utilidad;
+- cosven.db;
+- históricos;
+- caches;
+- automatización.
+
+OBSERVACIÓN SOBRE PROVEEDORES
+-----------------------------
+Este paquete no agrega el filtro por proveedores. Para eso hay que incorporar el proveedor al motor/base local de consulta. Si se decide hacerlo, conviene abordarlo como cambio funcional aparte.
+
+INSTALACIÓN
+-----------
+1. Descomprimir en:
+   C:\Paykan\COSVENctualizaciones2_7
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Reiniciar:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat

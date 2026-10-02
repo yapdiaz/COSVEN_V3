@@ -1,0 +1,52 @@
+PAYKAN COSVEN - v2.5 GRILLAS
+================================
+
+OBJETIVO
+--------
+Evitar que las columnas queden fuera de pantalla y permitir visualizar
+la mayor cantidad posible de información simultáneamente.
+
+CAMBIOS
+-------
+1. Grilla principal:
+   - anchos definidos según el tipo de dato;
+   - más espacio para Descripción;
+   - columnas numéricas más compactas;
+   - menor altura de fila.
+
+2. Detalle de ventas:
+   - las 13 columnas usan anchos compactos;
+   - Nombre cliente y Tipo de pedido conservan mayor espacio;
+   - columnas numéricas ocupan solo lo necesario;
+   - menor altura de fila.
+
+3. Popup/modal:
+   - se amplía hasta aproximadamente el 96 % del ancho de la ventana;
+   - la grilla utiliza todo el espacio disponible.
+
+NOTA
+----
+En resoluciones de escritorio habituales el diseño está preparado para mostrar
+todas las columnas simultáneamente. En pantallas físicamente más pequeñas,
+el sistema conservará la información y podrá aparecer desplazamiento horizontal
+antes que ocultar o eliminar columnas.
+
+NO SE MODIFICA
+--------------
+- lógica histórica COSVEN;
+- filtros;
+- cosven.db;
+- históricos;
+- caches;
+- DBF de Paykan.
+
+INSTALACION
+-----------
+1. Descomprimir en:
+   C:\Paykan\COSVEN\actualizaciones\v2_5
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Reiniciar:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat

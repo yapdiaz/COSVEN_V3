@@ -1,0 +1,77 @@
+PAYKAN COSVEN - VERSION 2
+=========================
+
+OBJETIVO DE ESTA VERSION
+- Sin gráficas.
+- La vista inicial SIEMPRE es el día anterior.
+- Filtro de fechas Desde / Hasta.
+- Excluir farmacias/clientes y recalcular resultados.
+- Filtrar por tipo de pedido y recalcular resultados.
+- Filtro por familia y búsqueda de artículo.
+- Tabla más legible.
+- Clic en una fila de producto para abrir su detalle debajo.
+- Sin referencia "Familia D4"; se usa "Descripción familia".
+- Explicación en lenguaje natural dentro del informe.
+- Base histórica local SQLite.
+- Carga inicial 2026 por meses.
+- Luego actualización automática solamente del mes que contiene el día anterior.
+- Los DBF de \\Paykans\c\paykann\libres se usan SOLO EN LECTURA.
+
+IMPORTANTE: NO SE CAMBIA LA FORMULA COSVEN VALIDADA
+--------------------------------------------------
+El archivo original cosven_exacto.py que ya fue validado NO forma parte del reemplazo.
+Esta versión agrega un motor por período (cosven_periodo.py) derivado de la misma lógica
+para poder construir el histórico local. Antes de inicializar todo 2026 se incluye una
+validación de agosto contra el resultado base ya validado.
+
+ORDEN RECOMENDADO
+-----------------
+1) Extraer este paquete sobre C:\Paykan\COSVEN
+2) Ejecutar como PowerShell:
+      C:\Paykan\COSVEN\respaldar_actual.ps1
+   (si PowerShell bloquea scripts, ejecutarlo desde una consola con la política que use TI)
+3) Ejecutar:
+      C:\Paykan\COSVEN\validar_agosto.bat
+4) Continuar SOLAMENTE si termina con:
+      VALIDACION OK: resultados idénticos para agosto 2026.
+   Esa validación crea:
+      C:\Paykan\COSVEN\data\motor_validado_2026-08.ok
+   La carga inicial y la instalación de tareas se bloquean si esa marca no existe.
+5) Ejecutar una sola vez:
+      C:\Paykan\COSVEN\inicializar_2026.bat
+   La primera carga puede demorar porque debe preparar la cache histórica y calcular 2026 por mes.
+6) Iniciar:
+      C:\Paykan\COSVEN\iniciar_dashboard.bat
+7) Abrir localmente:
+      http://192.168.10.127:8501
+8) Cuando todo esté validado, ejecutar instalar_tareas.ps1 COMO ADMINISTRADOR.
+   Instala:
+   - Dashboard al iniciar Windows.
+   - Actualización diaria a las 06:00.
+   Para la actualización pedirá credenciales de un usuario con acceso de lectura a \\Paykans\c.
+
+ACTUALIZACION INCREMENTAL
+-------------------------
+La tarea diaria no recalcula 2026 completo.
+Calcula desde el día 1 del mes que contiene AYER hasta AYER y reemplaza solamente ese período
+local. Esto contempla correcciones realizadas dentro del mes abierto.
+
+Ejemplo el 04/09/2026:
+- Vista inicial del dashboard: 03/09/2026.
+- Actualización automática: reconstruye 01/09/2026 a 03/09/2026.
+- Enero a agosto permanecen congelados en la base local.
+
+Ejemplo el 01/10/2026:
+- AYER = 30/09/2026.
+- La tarea hace una última reconstrucción de septiembre completo.
+
+ARCHIVOS PRINCIPALES
+--------------------
+C:\Paykan\COSVEN\app\dashboard_cosven.py
+C:\Paykan\COSVEN\app\cosven_periodo.py
+C:\Paykan\COSVEN\app\preparar_cache_historica.py
+C:\Paykan\COSVEN\app\inicializar_2026.py
+C:\Paykan\COSVEN\app\actualizar_mes.py
+C:\Paykan\COSVEN\data\cosven.db
+C:\Paykan\COSVEN\data\historico\cosven_YYYY-MM.csv
+C:\Paykan\COSVEN\logs\

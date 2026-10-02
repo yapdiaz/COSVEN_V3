@@ -1,0 +1,3 @@
+COSVEN-F003  No hay tipos de pedido seleccionados.
+COSVEN-F006  No hay farmacias seleccionadas.
+El resto de las referencias de v2.2 se mantiene sin cambios.

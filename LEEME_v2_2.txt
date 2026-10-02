@@ -1,0 +1,60 @@
+PAYKAN COSVEN - ACTUALIZACION DE INTERFAZ v2.2
+================================================
+
+Esta actualización modifica UNICAMENTE:
+    C:\Paykan\COSVEN\app\dashboard_cosven.py
+
+NO modifica:
+- lógica histórica de costos COSVEN
+- cosven.db
+- archivos históricos
+- caches
+- DBF de Paykan
+- actualización incremental
+
+CAMBIOS
+-------
+1. El detalle de ventas ya no aparece debajo de la tabla.
+   Al seleccionar un artículo se abre en una ventana modal grande.
+
+2. Se mantiene un botón "Abrir detalle" para volver a abrir el mismo artículo
+   después de cerrar la ventana.
+
+3. Los valores de las tarjetas KPI se reducen levemente de tamaño para evitar
+   cortes o saltos de línea.
+
+4. La utilidad por producto se recalcula DESPUES de aplicar:
+   - rango Desde/Hasta
+   - farmacias/clientes excluidos
+   - tipo de pedido
+   - familia
+   - búsqueda de artículo
+
+5. La vista inicial continúa siendo SIEMPRE el día anterior.
+
+6. Se corrige el caso que podía provocar:
+       KeyError: 'UTILIDAD'
+   cuando una combinación de filtros no dejaba resultados.
+
+7. Los errores técnicos y tracebacks no se muestran al usuario.
+   El usuario recibe una explicación en lenguaje natural y una referencia,
+   por ejemplo COSVEN-F002 o COSVEN-R001.
+
+8. El detalle técnico de fallas internas se registra en:
+       C:\Paykan\COSVEN\logs\dashboard_errores.log
+   junto con los filtros usados.
+
+9. No se agregan gráficas.
+
+10. Los archivos Excel conservan los importes como valores numéricos.
+
+INSTALACION
+-----------
+1. Descomprimir este ZIP en cualquier carpeta.
+2. Ejecutar:
+       APLICAR_ACTUALIZACION.bat
+3. Reiniciar el dashboard:
+       C:\Paykan\COSVEN\iniciar_dashboard.bat
+
+El instalador crea automáticamente un backup del dashboard anterior dentro de:
+    C:\Paykan\COSVEN\versiones\

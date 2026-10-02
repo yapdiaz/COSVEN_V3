@@ -1,0 +1,107 @@
+PAYKAN COSVEN v2.15 - ACTUALIZACIONES AUTOMATICAS
+===================================================
+
+OBJETIVO
+--------
+Mantener el dashboard actualizado sin volver a reconstruir todo 2026.
+
+MODELO DE ACTUALIZACION
+-----------------------
+El histórico de meses cerrados no se toca.
+
+Sólo se reconstruye el mes abierto porque durante el mes pueden existir:
+- nuevos movimientos;
+- correcciones;
+- documentos modificados;
+- datos cargados posteriormente.
+
+Por eso es incremental respecto del histórico, pero no se limita a "agregar
+la última fila": vuelve a sincronizar únicamente el mes que todavía puede cambiar.
+
+HORARIOS
+--------
+05:00
+- reconstruye el mes que contiene AYER;
+- consolida la información hasta el día anterior;
+- el día 1 del mes finaliza correctamente el mes anterior.
+
+13:00
+- reconstruye el mes actual incluyendo HOY;
+- permite consultar información intradía si el usuario selecciona la fecha actual.
+
+BOTON MANUAL
+------------
+El dashboard incorpora:
+    Actualización de datos
+    [ Actualizar datos ahora ]
+
+El botón ejecuta una tarea de Windows con las mismas credenciales utilizadas
+por las tareas automáticas. De esta forma funciona incluso si el dashboard
+está iniciado como SYSTEM.
+
+CONCURRENCIA
+------------
+Existe un lock:
+    C:\Paykan\COSVEN\cache\actualizacion.lock
+
+Si una actualización ya está en curso:
+- 05:00, 13:00 o botón manual NO inician una segunda simultáneamente.
+
+FUENTE
+------
+Los DBF se leen desde:
+    \\Paykans\c\paykann\libres
+
+El proceso crea una copia temporal local de los DBF operativos en:
+    C:\Paykan\COSVEN\cache\snapshot_actual
+
+El cálculo se ejecuta sobre esa copia local.
+No se modifica ningún DBF de Paykan.
+
+BASE DEL DASHBOARD
+------------------
+Se actualiza únicamente:
+    C:\Paykan\COSVEN\data\cosven.db
+
+LOG
+---
+    C:\Paykan\COSVEN\logs\actualizacion_YYYYMMDD.log
+
+INSTALACION
+-----------
+1. Descomprimir en:
+   C:\Paykan\COSVEN\actualizaciones\v2_15
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Ejecutar como administrador:
+   INSTALAR_TAREAS_ACTUALIZACION.bat
+
+   Windows solicitará la contraseña de un usuario con acceso de lectura
+   a \\Paykans\c. Esa cuenta se almacena en el Programador de tareas.
+
+4. Reiniciar el dashboard:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat
+
+5. Verificar:
+   VERIFICAR_ACTUALIZACIONES.bat
+
+PRUEBA MANUAL
+-------------
+Puede ejecutar:
+   PROBAR_ACTUALIZACION_MANUAL.bat
+
+o usar el botón:
+   Actualizar datos ahora
+
+NO CAMBIA
+---------
+- fórmula COSVEN;
+- históricos cerrados;
+- lógica de costo;
+- filtros;
+- tratamiento de NC/ajustes;
+- descuento;
+- usuario que hizo el pedido;
+- exportaciones.

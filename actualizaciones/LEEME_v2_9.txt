@@ -1,0 +1,31 @@
+PAYKAN COSVEN - v2.9 FILTROS + POPUP
+=====================================
+
+CAMBIOS
+-------
+1. Se elimina la redundancia entre Laboratorio y Familia:
+   - Laboratorio usa XFLIA + C:\editorPaykanVentas\CSV\Laboratorio.csv.
+   - El selector muestra únicamente el nombre del laboratorio, en orden alfabético.
+   - El antiguo filtro Familia se convierte en Tipo de producto.
+   - Tipo de producto usa FAMILIA_DESC y muestra valores únicos, por ejemplo MEDICAMENTO / TOCADOR.
+
+2. Popup de detalle:
+   - ancho 98% del viewport;
+   - columnas compactadas;
+   - se mantienen todas las columnas del detalle;
+   - diseñado para que la grilla completa entre en una pantalla de escritorio estándar sin moverla lateralmente.
+
+NO CAMBIA
+---------
+- lógica de costo COSVEN;
+- tratamiento de ajustes / NC de la v2.8;
+- cosven.db;
+- históricos;
+- caches;
+- DBF de Paykan.
+
+INSTALACIÓN
+-----------
+1. Descomprimir en C:\Paykan\COSVEN\actualizaciones\v2_9
+2. Ejecutar APLICAR_ACTUALIZACION.bat
+3. Reiniciar C:\Paykan\COSVEN\iniciar_dashboard.bat

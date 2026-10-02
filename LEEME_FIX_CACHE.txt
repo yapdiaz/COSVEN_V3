@@ -1,0 +1,38 @@
+PAYKAN COSVEN v2.1 - HOTFIX CACHE HISTORICA
+
+CAUSA CORREGIDA
+---------------
+El constructor nuevo de la cache le quitaba los espacios de la izquierda al
+campo ART al leer MOVAANT en bruto.
+
+En Paykan, la clave ART es de 7 caracteres y conserva esos espacios:
+    str(FLIA,3) + str(ART,4)
+
+Ejemplo correcto:
+    "  1 116"
+
+La versión anterior del constructor la convertía internamente en:
+    "1 116  "
+
+Al guardar la cache se volvía a buscar con la clave original, por lo que muchos
+artículos quedaban con MOVIMIENTO=0 aunque sí tenían movimientos históricos.
+
+INSTALACION
+-----------
+Extraer este ZIP directamente en:
+    C:\Paykan\COSVEN
+
+Sobrescribir:
+    app\preparar_cache_historica.py
+
+Luego ejecutar:
+    C:\Paykan\COSVEN\reparar_y_validar_agosto.bat
+
+NO ejecutar inicializar_2026.bat hasta que la validación diga:
+    VALIDACION OK: resultados idénticos para agosto 2026.
+
+SEGURIDAD
+---------
+No se modifica Z: ni \\Paykans\c\paykann\libres.
+Los DBF se leen únicamente.
+El cache defectuoso se respalda antes de reconstruirlo.

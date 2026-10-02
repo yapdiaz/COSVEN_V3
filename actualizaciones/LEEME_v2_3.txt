@@ -1,0 +1,41 @@
+PAYKAN COSVEN - v2.3 FILTROS
+================================
+
+CAMBIO PRINCIPAL
+----------------
+Se elimina el concepto visible de "Excluir farmacias / clientes".
+
+Ahora:
+- El filtro se llama "Farmacias".
+- Todas las farmacias del período están incluidas por defecto.
+- El usuario desmarca únicamente las que no quiera considerar.
+- Al cambiar el rango Desde/Hasta, la nueva consulta vuelve a comenzar con
+  todas las farmacias del nuevo período incluidas.
+
+Tipo de pedido:
+- Todos los tipos presentes en el período quedan incluidos por defecto.
+- El usuario desmarca los que no quiera considerar.
+
+Los resultados, KPI y utilidad por producto se recalculan después de aplicar
+estos filtros sobre el detalle de operaciones.
+
+SE MANTIENE
+-----------
+- Día anterior por defecto.
+- Detalle en modal grande.
+- Fuente reducida en tarjetas KPI.
+- Manejo de errores en lenguaje natural.
+- Sin gráficas.
+- No se modifica la lógica histórica de costos COSVEN.
+- No se modifica cosven.db, históricos, caches ni DBF.
+
+INSTALACION
+-----------
+1. Descomprimir este ZIP en:
+   C:\Paykan\COSVEN\actualizaciones\v2_3
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Reiniciar:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat

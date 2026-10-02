@@ -1,0 +1,24 @@
+PAYKAN - COSVEN
+
+Extraer el contenido de este paquete directamente en:
+
+C:\Paykan\COSVEN
+
+El paquete reemplaza/crea:
+- app\cosven_exacto.py
+- app\dashboard_cosven.py
+- assets\logo_paykan.svg
+- assets\hero_logistica.webp
+- assets\deposito_paykan.webp
+- .streamlit\config.toml
+- actualizar_informe.bat
+- iniciar_dashboard.bat
+
+NO borra ni reemplaza las carpetas data\ y cache\.
+
+Primera ejecución:
+1. Doble clic en actualizar_informe.bat
+2. Doble clic en iniciar_dashboard.bat
+3. Abrir http://localhost:8501
+
+Z:\paykann se utiliza únicamente en lectura.

@@ -1,0 +1,25 @@
+REFERENCIAS DE MENSAJES
+=======================
+
+COSVEN-F001  Rango Desde/Hasta inválido.
+COSVEN-F002  Los filtros dejan la consulta sin operaciones.
+COSVEN-F003  No se seleccionó ningún tipo de pedido.
+COSVEN-F004  Hay ventas, pero ningún artículo con pérdida.
+COSVEN-F005  No hay movimientos para el detalle seleccionado.
+
+COSVEN-D001  No hay ventas en el período solicitado.
+COSVEN-D002  La fecha todavía no está procesada/localmente disponible.
+COSVEN-D003  La base local no está inicializada o accesible.
+COSVEN-D004  La base local existe pero no contiene movimientos.
+
+COSVEN-U001  La versión instalada no admite ventana modal.
+COSVEN-U002  La versión instalada no admite selección de fila por clic.
+
+COSVEN-R001  Error interno general del dashboard.
+COSVEN-R002  Error leyendo la base local.
+COSVEN-R003  Error cargando el período.
+COSVEN-R004  Error mostrando el detalle.
+COSVEN-R005  Error cargando los catálogos de filtros.
+
+Los errores Rxxx guardan detalle técnico en:
+C:\Paykan\COSVEN\logs\dashboard_errores.log

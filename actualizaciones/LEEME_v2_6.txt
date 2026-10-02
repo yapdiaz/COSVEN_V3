@@ -1,0 +1,62 @@
+PAYKAN COSVEN - v2.6 BUSCADOR DE FARMACIAS
+================================================
+
+NUEVO COMPORTAMIENTO
+--------------------
+- Todas las farmacias están incluidas por defecto.
+- Ya no se muestra un multiselect enorme con todas seleccionadas.
+- El usuario escribe el código o parte del nombre de la farmacia.
+- El sistema muestra únicamente las coincidencias.
+- La farmacia aparece marcada porque está incluida.
+- Al desmarcarla, deja de participar en el cálculo.
+- Si vuelve a buscarla y la marca, vuelve a incorporarse.
+- Se muestra cuántas farmacias quedaron fuera del análisis.
+- Existe el botón "Incluir nuevamente todas".
+
+La búsqueda:
+- no distingue mayúsculas/minúsculas;
+- tolera acentos;
+- funciona por código o nombre;
+- muestra hasta 25 coincidencias para mantener la interfaz clara.
+
+LOS RESULTADOS SE RECALCULAN
+----------------------------
+Al desmarcar o volver a marcar una farmacia cambian:
+- Venta
+- Costo
+- Utilidad
+- % Utilidad
+- artículos con pérdida
+- tabla de resultados
+- detalle
+
+SE MANTIENE
+-----------
+- Día anterior por defecto.
+- Rango Desde/Hasta.
+- Tipo de pedido.
+- Modal grande para detalle.
+- Grillas compactas.
+- Fondos de tarjetas KPI.
+- Español latinoamericano neutro.
+- Sin gráficas.
+- Manejo de errores en lenguaje natural.
+
+NO SE MODIFICA
+--------------
+- lógica histórica COSVEN;
+- cosven.db;
+- históricos;
+- caches;
+- DBF de Paykan.
+
+INSTALACION
+-----------
+1. Descomprimir en:
+   C:\Paykan\COSVEN\actualizaciones\v2_6
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Reiniciar:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat

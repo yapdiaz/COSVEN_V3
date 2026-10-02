@@ -1,0 +1,24 @@
+PAYKAN COSVEN v2.14 - USUARIO QUE HIZO EL PEDIDO
+
+Corrección funcional:
+- Camila aclaró que no necesita quién factura.
+- Necesita el nombre de quién hizo/cargó el pedido.
+
+Fuente utilizada:
+MOVART/HISVTA -> PED
+PEDIDOS.PED -> PEDIDOS.CLAING
+PEDIDOS.CLAING -> USUARIOS.NCLA -> USUARIOS.USUARIO
+
+La columna queda al final del popup como:
+Usuario pedido
+
+No se modifica:
+- Descuento
+- Fórmula COSVEN
+- Venta
+- Costo
+- Utilidad
+- Exportaciones
+
+Los DBF se consultan sólo en lectura.
+Se actualiza únicamente la base local C:\Paykan\COSVEN\data\cosven.db.

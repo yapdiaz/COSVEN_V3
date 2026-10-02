@@ -1,0 +1,27 @@
+PAYKAN COSVEN v2.17 - NC FUERA DE RENTABILIDAD
+
+Regla aplicada
+--------------
+Las notas de crédito identificadas por TM=NC:
+- siguen visibles en el detalle del artículo;
+- no alteran Venta, Costo, Utilidad ni % Utilidad de rentabilidad;
+- no alteran el ranking principal;
+- no alteran los KPI de rentabilidad del popup.
+
+El contador "Movimientos" del popup sigue mostrando todas las operaciones,
+incluidas las NC, para conservar trazabilidad.
+
+Ejemplo validado
+----------------
+FC: Venta 1601,34 | Costo 1473,30 -> 8,69 %
+NC: permanece visible en la grilla.
+KPI de rentabilidad: 8,69 %.
+
+No modifica
+-----------
+- DBF
+- cosven.db
+- históricos
+- lógica de costo COSVEN
+- actualización automática
+- tareas programadas

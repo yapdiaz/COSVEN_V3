@@ -1,0 +1,26 @@
+PAYKAN COSVEN - HOTFIX v2.15.1
+
+Problema corregido
+------------------
+La actualización llegaba hasta "8/8 Totalizando" y fallaba al escribir el CSV de detalle con:
+
+ValueError: dict contains fields not in fieldnames: 'DTO', 'USUARIO'
+
+Causa
+-----
+Las filas ya incluían DTO y USUARIO, pero la lista campos_detalle usada como encabezado del CSV no los incluía.
+
+Corrección
+----------
+Se agregan DTO y USUARIO a campos_detalle.
+
+No se modifica:
+- fuente DBF
+- lógica de costos / COSVEN
+- cosven.db
+- históricos existentes
+- dashboard
+- tareas programadas
+
+Después de aplicar el hotfix, vuelva a ejecutar:
+Start-ScheduledTask -TaskName "Paykan COSVEN Actualizacion Manual"

@@ -1,0 +1,70 @@
+PAYKAN COSVEN - v2.11 - DESCUENTO + USUARIO EN POPUP
+=====================================================
+
+OBJETIVO
+--------
+Agregar únicamente al popup "Detalle de ventas del artículo":
+
+- Descuento
+- Usuario (quién registró/hizo el pedido según el dato de Paykan)
+
+FUENTE
+------
+La implementación sigue la relación encontrada en el fuente de Paykan:
+
+- Descuento: MOVART.DTO
+- Usuario: MOVART.CLAING -> USUARIOS.NCLA -> USUARIOS.USUARIO
+
+No se infiere el usuario por nombre, cliente, fecha ni pedido.
+
+QUÉ CAMBIA
+----------
+1. Popup:
+   Se agregan las columnas Usuario y Descuento.
+
+2. Base local:
+   cosven.db recibe tres columnas informativas:
+   - descuento
+   - claing
+   - usuario
+
+3. Datos ya cargados:
+   El instalador ejecuta una sola vez enriquecer_detalle.py para completar
+   esas columnas en el histórico local existente.
+
+4. Actualizaciones futuras:
+   cosven_periodo.py y cosven_store.py quedan preparados para guardar
+   automáticamente esos datos en cada reconstrucción mensual.
+
+QUÉ NO CAMBIA
+-------------
+- Fórmula COSVEN
+- Costo histórico
+- Venta
+- Utilidad
+- % Utilidad
+- Tratamiento de ajustes/NC
+- Filtros
+- Exportaciones Excel/CSV
+- DBF fuente
+
+SEGURIDAD
+---------
+Los DBF bajo \\Paykans\c\paykann\libres se consultan solamente en modo lectura.
+El enriquecimiento escribe únicamente en:
+C:\Paykan\COSVEN\data\cosven.db
+
+Antes de modificar la base local se crea un backup automático.
+
+INSTALACIÓN
+-----------
+1. Descomprimir en:
+   C:\Paykan\COSVEN\actualizaciones\v2_11
+
+2. Ejecutar:
+   APLICAR_ACTUALIZACION.bat
+
+3. Esperar a que termine el enriquecimiento.
+
+4. Reiniciar:
+   C:\Paykan\COSVEN\iniciar_dashboard.bat

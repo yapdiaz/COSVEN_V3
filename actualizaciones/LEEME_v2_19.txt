@@ -1,0 +1,43 @@
+PAYKAN COSVEN v2.19 - AJUSTE POWER BI
+
+Objetivo
+--------
+Corregir la diferencia detectada entre los KPI del dashboard COSVEN y Power BI.
+
+Cambios
+-------
+1. Las notas de crédito (TM=NC) vuelven a participar en los totales con el
+   signo real almacenado en COSVEN.
+2. Se elimina la exclusión completa de la familia 121.
+3. Se excluye únicamente el artículo 121-0012 (ENCOMIENDAS), equivalente al
+   filtro de Power BI ARTICULO_VENDIDO.codArticulo != "121  12".
+4. Los KPI del popup usan la misma lógica que el resultado principal.
+5. Se conserva la regla de fecha de v2.18:
+   - normalmente abre el día anterior;
+   - domingo con movimientos -> domingo;
+   - domingo sin movimientos -> sábado.
+
+No modifica
+-----------
+- DBF de Paykan
+- cosven.db
+- históricos
+- cálculo de costo de origen
+- actualización automática
+- tareas programadas
+
+Instalación
+-----------
+Ejecutar APLICAR_ACTUALIZACION.bat.
+
+El instalador respalda el dashboard actual en:
+C:\Paykan\COSVEN\versiones\antes_v2_19_<fecha_hora>\app\dashboard_cosven.py
+
+Después reiniciar el dashboard:
+C:\Paykan\COSVEN\iniciar_dashboard.bat
+
+Validación solicitada
+---------------------
+Probar 01/08/2026 al 31/08/2026 con los mismos filtros de Power BI.
+La Venta debe quedar alineada con el criterio validado de Power BI:
+27.339.378,19 antes del redondeo visual del BI.

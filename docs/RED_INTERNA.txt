@@ -1,0 +1,56 @@
+PAYKAN COSVEN - ACCESO DE RED
+=============================
+
+Dashboard / VM:
+- IP: 192.168.10.127
+- Puerto: TCP 8501
+- Streamlit escucha en 0.0.0.0:8501
+
+RED 192.168.10.0/24
+-------------------
+Los equipos de esta misma subred (por ejemplo 192.168.10.205) acceden directamente:
+
+    http://192.168.10.127:8501
+
+Prueba desde un host de esa red:
+
+    Test-NetConnection 192.168.10.127 -Port 8501
+
+RED 192.168.189.0/24
+--------------------
+El host Hyper-V tiene:
+- 192.168.189.98 en Red Virtual D4
+- 192.168.10.137 en Red Movistar
+
+Ya se verificó que el Hyper-V llega correctamente a 192.168.10.127:8501.
+Para publicar el dashboard hacia 192.168.189.0/24 se puede usar un portproxy EN EL HOST HYPER-V:
+
+    netsh interface portproxy add v4tov4 listenaddress=192.168.189.98 listenport=8501 connectaddress=192.168.10.127 connectport=8501
+
+Regla de firewall limitada a la red 192.168.189.0/24:
+
+    New-NetFirewallRule `
+      -DisplayName "Paykan COSVEN Proxy" `
+      -Direction Inbound `
+      -Protocol TCP `
+      -LocalPort 8501 `
+      -LocalAddress 192.168.189.98 `
+      -RemoteAddress 192.168.189.0/24 `
+      -Action Allow
+
+Luego los usuarios de 192.168.189.0/24 acceden a:
+
+    http://192.168.189.98:8501
+
+Verificación:
+
+    netsh interface portproxy show all
+    Test-NetConnection 192.168.189.98 -Port 8501
+
+REVERSIÓN DEL PORTPROXY
+-----------------------
+
+    netsh interface portproxy delete v4tov4 listenaddress=192.168.189.98 listenport=8501
+    Remove-NetFirewallRule -DisplayName "Paykan COSVEN Proxy"
+
+Este documento es solamente una guía. El paquete COSVEN NO ejecuta ni modifica automáticamente la red del Hyper-V.

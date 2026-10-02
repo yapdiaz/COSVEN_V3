@@ -1,0 +1,19 @@
+PAYKAN - COSTO DE VENTAS POR ARTICULO
+
+Reglas funcionales incorporadas:
+
+1. La apertura del dashboard muestra siempre el día anterior.
+2. El usuario puede cambiar el período con dos calendarios: Desde y Hasta.
+3. Se pueden excluir una o varias farmacias/clientes.
+4. Se puede filtrar por los tipos de pedido reales registrados en Paykan.
+5. Después de aplicar filtros se recalculan Venta, Costo, Utilidad, % Utilidad,
+   artículos con pérdida y pérdida acumulada.
+6. El filtro "Mostrar solo artículos con pérdida" es de presentación de la tabla;
+   no altera los KPI del universo ya filtrado.
+7. El resultado se totaliza por artículo a partir del detalle de operaciones.
+8. Al hacer clic en una fila del resultado se abre debajo el detalle de ese producto.
+9. No se incorpora ningún tratamiento especial de notas de crédito como requisito nuevo.
+   El motor conserva el comportamiento de movimientos ya definido por COSVEN.
+10. No hay gráficas: el objetivo del dashboard es consulta y trazabilidad de resultados.
+11. Los meses cerrados se conservan localmente; el mes abierto se reconstruye diariamente.
+12. La fuente DBF de Paykan se utiliza únicamente en lectura.

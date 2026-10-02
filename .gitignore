@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Entornos
+.venv/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache
+cache/
+
+# Respaldos
+*.bak
+*.bak_*
+*.old
+
+# ZIP
+*.zip
+
+# Windows
+Thumbs.db
+Desktop.ini
